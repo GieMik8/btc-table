@@ -1,0 +1,28 @@
+body {
+  background-color: $primary;
+  color: $secondary;
+}
+
+main {
+  flex-grow: 1;
+}
+
+header {
+  padding: 10px 15px;
+}
+
+footer {
+  padding: 10px 15px;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 1000px;
+  max-width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
