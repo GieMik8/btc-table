@@ -1,5 +1,7 @@
-import * as appActions from './app/actions'
+import * as app from './app/actions'
+import * as ui from './ui/actions'
 
 export default {
-  app: appActions,
+  app,
+  ui,
 }

@@ -1,9 +1,11 @@
-import { createAction, createAsyncAction } from 'typesafe-actions'
+import { createAsyncAction, createAction } from 'typesafe-actions'
+import { AjaxResponse, AjaxError } from 'rxjs/ajax'
 
-export const sayHello = createAction('SAY_HELLO')<string>()
+export const subscribeBtcCurrency = createAction('SUBSCRIBE_BTC_CURRENCY')<void>()
+export const unsubscribeBtcCurrency = createAction('UNSUBSCRIBE_BTC_CURRENCY')<void>()
 
-export const getApiVersionAsync = createAsyncAction(
-  'GET_API_VERSION_REQUEST',
-  'GET_API_VERSION_SUCCESS',
-  'GET_API_VERSION_FAILURE',
-)<undefined, string, string>()
+export const getBtcCurrentPrice = createAsyncAction(
+  'GET_BTC_CURRENT_PRICE_REQUEST',
+  'GET_BTC_CURRENT_PRICE_SUCCESS',
+  'GET_BTC_CURRENT_PRICE_FAILURE',
+)<undefined, AjaxResponse, AjaxError>()

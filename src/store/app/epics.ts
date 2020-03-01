@@ -1,23 +1,28 @@
 import { Epic } from 'redux-observable'
-import { of, empty } from 'rxjs'
-import { filter, switchMap, catchError } from 'rxjs/operators'
+import { of, interval } from 'rxjs'
+import { filter, switchMap, catchError, takeUntil } from 'rxjs/operators'
 import { RootAction, RootState, Services, isActionOf } from 'typesafe-actions'
 
-import { getApiVersionAsync, sayHello } from './actions'
+import { getBtcCurrentPrice, subscribeBtcCurrency, unsubscribeBtcCurrency } from './actions'
 
-export const sayHelloEpic: Epic<RootAction, RootAction, RootState, Services> = (action$, state$, { api }) =>
+export const subscribeBtcCurrentPriceEpic: Epic<RootAction, RootAction, RootState, Services> = action$ =>
   action$.pipe(
-    filter(isActionOf(sayHello)),
-    switchMap(() => empty()),
+    filter(isActionOf(subscribeBtcCurrency)),
+    switchMap(() =>
+      interval(+process.env.REACT_APP_CURRENCT_FETCH_FREQUENCY!).pipe(
+        takeUntil(action$.pipe(filter(isActionOf(unsubscribeBtcCurrency)))),
+        switchMap(() => of(getBtcCurrentPrice.request())),
+      ),
+    ),
   )
 
-export const getApiVersionEpic: Epic<RootAction, RootAction, RootState, Services> = (action$, state$, { api }) =>
+export const getBtcCurrentPriceEpic: Epic<RootAction, RootAction, RootState, Services> = (action$, state$, { api }) =>
   action$.pipe(
-    filter(isActionOf(getApiVersionAsync.request)),
+    filter(isActionOf(getBtcCurrentPrice.request)),
     switchMap(() =>
-      api.base.getApiVersion().pipe(
-        switchMap(re => of(getApiVersionAsync.success(re.response))),
-        catchError(e => of(getApiVersionAsync.failure(e.message))),
+      api.currency.getCurrentBtcPrice().pipe(
+        switchMap(response => of(getBtcCurrentPrice.success(response))),
+        catchError(error => of(getBtcCurrentPrice.failure(error))),
       ),
     ),
   )

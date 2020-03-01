@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 
 import store from 'store'
-import { Table, Layout } from 'components'
+import { CurrencyTable, Layout } from 'components'
 
 /**
  * table
@@ -18,7 +18,7 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <Layout>
-        <Table />
+        <CurrencyTable />
       </Layout>
     </Provider>
   )

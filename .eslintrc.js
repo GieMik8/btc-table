@@ -21,10 +21,19 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'react-hooks'],
   rules: {
     'react/prop-types': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
+  // settings: {
+  //   'import/resolver': {
+  //     node: {
+  //       paths: ['src'],
+  //     },
+  //   },
+  // },
 }

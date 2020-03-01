@@ -45,6 +45,7 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "https://api.coindesk.com/",
   "devDependencies": {
     "@types/jest": "^24.9.0",
     "@types/lodash": "^4.14.149",
@@ -62,6 +63,7 @@
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
     "node-sass": "^4.13.1",
     "prettier": "^1.19.1",
     "react-scripts": "3.3.0",
