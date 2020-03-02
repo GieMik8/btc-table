@@ -3,12 +3,12 @@ import { createReducer } from 'typesafe-actions'
 import { getBtcCurrentPrice } from './actions'
 
 const defaultState = fromJS({
+  ready: null,
   info: {
     time: null,
     disclaimer: null,
     chartName: null,
   },
-  list: ['USD', 'GBP', 'EUR'],
   bpi: {},
 })
 
@@ -16,6 +16,7 @@ export const appReducer = createReducer(defaultState as Map<string, any>).handle
   getBtcCurrentPrice.success,
   (state, { payload }) =>
     state
+      .set('ready', true)
       .set('bpi', fromJS(payload.response.bpi))
       .setIn(['info', 'time'], payload.response.time)
       .setIn(['info', 'disclaimer'], payload.response.disclaimer)
