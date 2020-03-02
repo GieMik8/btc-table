@@ -8,9 +8,12 @@
     "@testing-library/user-event": "^7.2.1",
     "clsx": "^1.1.0",
     "connected-react-router": "^6.6.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "immutable": "^4.0.0-rc.12",
     "install": "^0.13.0",
     "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
     "normalizr": "^3.4.1",
     "npm": "^6.13.6",
     "react": "^16.12.0",
@@ -45,7 +48,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://api.coindesk.com/",
   "devDependencies": {
     "@types/jest": "^24.9.0",
     "@types/lodash": "^4.14.149",

@@ -11,6 +11,6 @@ export default class extends Client {
   }
 
   getCurrentBtcPrice(): Observable<AjaxResponse> {
-    return this.get(urlJoin(this.baseUrl, 'v1', 'bpi', 'currentprice.json'))
+    return this.get(urlJoin(this.baseUrl, 'currentprice'))
   }
 }
