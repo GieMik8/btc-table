@@ -2,6 +2,8 @@ This project was generated first from [GieMik8/react-ts-starter](https://github.
 
 ## Start up project
 
+This will require serveral terminals to be opened.
+
 Install dependencies
 
 ### `npm install`
@@ -10,7 +12,7 @@ In the project directory run (this will run api server for application):
 
 ### `npm run server`
 
-In the project directory run:
+Open another terminal and run:
 
 ### `npm start`
 
