@@ -7,6 +7,11 @@ import urljoin from 'url-join'
 import { StringifyOptions } from 'querystring'
 
 export default class Client {
+  baseUrl: string
+  constructor(baseUrl: string) {
+    this.baseUrl = baseUrl
+  }
+
   defaultHeaders = {
     'Content-Type': 'application/json',
   }
